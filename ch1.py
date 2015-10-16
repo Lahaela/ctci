@@ -78,5 +78,37 @@ def replacespaces(string):
     return "".join(lst)
 
 ## 1.6
-def rotate(matrix):
-    for 
+def rotate(matrix): # Still broken
+    n = len(matrix)
+    matrix2 = [[]] *n
+    # triangle = 0
+    for row in range(1):
+        for col in range(n):
+            # matrix2[col].append(matrix[col][row])
+            matrix2[col].append(matrix[row][col])
+        # triangle += 1
+        print(matrix2)
+    return matrix2
+
+def rotateinplace(matrix):
+    n = len(matrix)
+    for row in range(1):
+        for col in range(n):
+            matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
+
+## 1.7
+def settozero(matrix):
+    m, n = len(matrix), len(matrix[0])
+    rows = [False]* m
+    cols = [False] * n
+    for i in range(m):
+        for j in range(n):
+            if not matrix[i][j]:
+                rows[i] = True
+                cols[j] = True
+    for x in range(m):
+        for y in range(n):
+            if rows[x] or cols[y]:
+                matrix[x][y] = 0
+
+
